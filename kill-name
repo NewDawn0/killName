@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+sel=$(pgrep -al . | fzf --prompt="Kill which process? ")
+
+[ "$sel" = "" ] && echo "No process selected." && exit 1
+
+pid="${sel%% *}"
+
+kill -9 "$pid" && echo "Killed process with PID $pid"
