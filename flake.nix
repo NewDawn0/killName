@@ -12,6 +12,12 @@
         name = "kill-name";
         runtimeInputs = with pkgs; [ coreutils fzf gawk procps ];
         text = builtins.readFile ./kill-name;
+        meta = {
+          description = "Kill processes by name using fzf";
+          homepage = "https://github.com/NewDawn0/killName";
+          license = pkgs.lib.licenses.mit;
+          maintainers = with pkgs.lib.maintainers; [ NewDawn0 ];
+        };
       };
     });
   };
