@@ -10,7 +10,12 @@
     packages = utils.lib.eachSystem { } (pkgs: {
       default = pkgs.writeShellApplication {
         name = "kill-name";
-        runtimeInputs = with pkgs; [ uutils-coreutils fzf gawk procps ];
+        runtimeInputs = with pkgs; [
+          uutils-coreutils-noprefix
+          fzf
+          gawk
+          procps
+        ];
         text = builtins.readFile ./kill-name;
         meta = {
           description = "Kill processes by name using fzf";
